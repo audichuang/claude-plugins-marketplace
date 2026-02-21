@@ -16,6 +16,6 @@
     ],
     "license": "MIT",
     "skills": [
-        "./skills/debug-openclaw"
+        "../../skills/debug-openclaw"
     ]
 }
