@@ -1,4 +1,4 @@
-# claude-plugins-marketplace
+# audi-plugins
 
 Claude Code marketplace containing OpenClaw debugging tools and productivity plugins.
 
@@ -27,7 +27,7 @@ Systematic guide for investigating OpenClaw issues. Covers session analysis, gat
 
 ```bash
 # Add marketplace
-/plugin marketplace add audichuang/claude-plugins-marketplace
+/plugin marketplace add audichuang/audi-plugins
 
 # Install plugin
 /plugin install debug-openclaw@audi-plugins
@@ -35,13 +35,13 @@ Systematic guide for investigating OpenClaw issues. Covers session analysis, gat
 
 ### OpenClaw
 
-Add one line to `~/.openclaw/openclaw.json` — covers all plugins automatically:
+Add one line to your OpenClaw config — covers all plugins automatically:
 
 ```json5
 {
   "skills": {
     "load": {
-      "extraDirs": ["~/GoogleDrive/Github/skills/claude-plugins-marketplace/skills"]
+      "extraDirs": ["~/GoogleDrive/Github/skills/audi-plugins/skills"]
     }
   }
 }
@@ -50,26 +50,30 @@ Add one line to `~/.openclaw/openclaw.json` — covers all plugins automatically
 ## Repository Structure
 
 ```
-claude-plugins-marketplace/
+audi-plugins/
 ├── .claude-plugin/
 │   └── marketplace.json
-├── skills/                            # Shared skills (single source of truth)
+├── skills/                            # Symlinks for OpenClaw (extraDirs → here)
+│   └── debug-openclaw -> ../plugins/debug-openclaw/skills/debug-openclaw
+├── plugins/                           # Plugin packages (Claude Code reads here)
 │   └── debug-openclaw/
-│       ├── SKILL.md
-│       └── references/
-└── plugins/                           # Plugin wrappers (reference shared skills)
-    └── debug-openclaw/
-        └── .claude-plugin/
-            └── plugin.json            # skills: ["../../skills/debug-openclaw"]
+│       ├── .claude-plugin/plugin.json
+│       └── skills/debug-openclaw/     # Actual skill files (source of truth)
+│           ├── SKILL.md
+│           └── references/
+├── CLAUDE.md
+├── GEMINI.md
+└── AGENTS.md
 ```
 
 ## Adding a New Plugin
 
-1. Add skill to `skills/<name>/SKILL.md`
-2. Create `plugins/<name>/.claude-plugin/plugin.json` with `skills: ["../../skills/<name>"]`
-3. Add entry to `.claude-plugin/marketplace.json`
+1. Create `plugins/<name>/skills/<name>/SKILL.md`
+2. Create `plugins/<name>/.claude-plugin/plugin.json` with `skills: ["./skills/<name>"]`
+3. Add symlink: `cd skills && ln -s ../plugins/<name>/skills/<name> <name>`
+4. Add entry to `.claude-plugin/marketplace.json`
 
-OpenClaw picks up new skills automatically (no config change needed).
+OpenClaw picks up new skills automatically via the symlink — no config change needed.
 
 ## License
 

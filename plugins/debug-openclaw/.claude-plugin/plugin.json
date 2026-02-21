@@ -5,8 +5,6 @@
     "author": {
         "name": "audi"
     },
-    "repository": "https://github.com/audichuang/claude-plugins-marketplace",
-    "homepage": "https://github.com/audichuang/claude-plugins-marketplace/tree/main/plugins/debug-openclaw",
     "keywords": [
         "openclaw",
         "debug",
@@ -16,6 +14,6 @@
     ],
     "license": "MIT",
     "skills": [
-        "../../skills/debug-openclaw"
+        "./skills/debug-openclaw"
     ]
 }

@@ -5,7 +5,7 @@
 這是一個 Claude Code plugin marketplace repo，同時相容 OpenClaw。
 
 ```
-claude-plugins-marketplace/
+audi-plugins/
 ├── .claude-plugin/marketplace.json    # Marketplace 註冊表
 ├── skills/                            # 所有 skill 的唯一真相來源（共享）
 │   └── <skill-name>/
