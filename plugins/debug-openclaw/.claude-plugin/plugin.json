@@ -1,0 +1,21 @@
+{
+    "name": "debug-openclaw",
+    "description": "Debug OpenClaw session issues, gateway problems, and runtime errors. Use when troubleshooting why sessions aren't responding, gateway won't start, skills fail to load, browser automation breaks, channels disconnect, or model/auth configuration is incorrect.",
+    "version": "1.0.0",
+    "author": {
+        "name": "audi"
+    },
+    "repository": "https://github.com/audi/claude-plugins-marketplace",
+    "homepage": "https://github.com/audi/claude-plugins-marketplace/tree/main/plugins/debug-openclaw",
+    "keywords": [
+        "openclaw",
+        "debug",
+        "troubleshooting",
+        "gateway",
+        "skills"
+    ],
+    "license": "MIT",
+    "skills": [
+        "./skills/debug-openclaw"
+    ]
+}

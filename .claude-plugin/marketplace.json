@@ -1,0 +1,15 @@
+{
+    "name": "audi-plugins",
+    "description": "Claude Code plugins for OpenClaw debugging and productivity tools",
+    "version": "1.0.0",
+    "owner": {
+        "name": "audi"
+    },
+    "plugins": [
+        {
+            "name": "debug-openclaw",
+            "source": "./plugins/debug-openclaw",
+            "description": "Debug OpenClaw session issues, gateway problems, skill loading, model/auth errors, and browser automation. Provides architecture context and systematic investigation guides."
+        }
+    ]
+}
